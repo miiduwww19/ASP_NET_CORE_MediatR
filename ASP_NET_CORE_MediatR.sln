@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP_NET_CORE_MediatR", "ASP_NET_CORE_MediatR\ASP_NET_CORE_MediatR.csproj", "{87449983-E608-48C8-AB04-1DE71246A6E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{90A8FBD4-ECC8-48D7-9643-F37F3AE3A93A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87449983-E608-48C8-AB04-1DE71246A6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87449983-E608-48C8-AB04-1DE71246A6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87449983-E608-48C8-AB04-1DE71246A6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87449983-E608-48C8-AB04-1DE71246A6E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A8FBD4-ECC8-48D7-9643-F37F3AE3A93A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A8FBD4-ECC8-48D7-9643-F37F3AE3A93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A8FBD4-ECC8-48D7-9643-F37F3AE3A93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A8FBD4-ECC8-48D7-9643-F37F3AE3A93A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85BD6034-312E-4366-80C7-E4B49C5281C6}
+	EndGlobalSection
+EndGlobal
