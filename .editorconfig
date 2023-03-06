@@ -1,0 +1,65 @@
+MediatR has two kinds of messages it dispatches:
+	1- Request/response messages, dispatched to a single handler
+	2- Notification messages, dispatched to multiple handlers
+
+Request/response interface handles both command and query scenarios. First, create a message:
+	public class Ping : IRequest<string> { }
+
+Next, create a handler:
+    public class PingHandler : IRequestHandler<Ping, string>
+    {
+        public Task<string> Handle(Ping request, CancellationToken cancellationToken)
+        {
+            return Task.FromResult("Pong");
+        }
+    }
+
+Finally, send a message through the mediator:
+    var response = await mediator.Send(new Ping());
+    Debug.WriteLine(response); // "Pong"
+
+In the case your message does not require a response, implement the non-generic IRequest interface and subsequent handler:
+    public class OneWay : IRequest { }
+    public class OneWayHandler : IRequestHandler<OneWay>
+    {
+        public Task Handle(OneWay request, CancellationToken cancellationToken)
+        {
+            // do work
+            return Task.CompletedTask;
+        }
+    }
+
+*** Streams and AsyncEnumerables ***
+    To create a stream from a request, first implement the stream request and its response:
+        IStreamRequest<TResponse>
+    Stream request handlers are separate from the normal IRequestHandler and require implementing:
+        IStreamRequestHandler<TRequest, TResponse>
+
+    Unlike normal request handlers that return a single TResponse, a stream handler returns an IAsyncEnumerable<TResponse>:
+        IAsyncEnumerable<TResponse> Handle(TRequest request, CancellationToken cancellationToken);
+
+*** Notifications ***
+    For notifications, first create your notification message:
+        public class Ping : INotification { }
+    Next, create zero or more handlers for your notification:
+        public class Pong1 : INotificationHandler<Ping>
+            {
+                public Task Handle(Ping notification, CancellationToken cancellationToken)
+                {
+                    Debug.WriteLine("Pong 1");
+                    return Task.CompletedTask;
+                }
+            }
+        public class Pong2 : INotificationHandler<Ping>
+        {
+            public Task Handle(Ping notification, CancellationToken cancellationToken)
+            {
+                Debug.WriteLine("Pong 2");
+                return Task.CompletedTask;
+            }
+        }
+
+Finally, publish your message via the mediator:
+    await mediator.Publish(new Ping());
+
+

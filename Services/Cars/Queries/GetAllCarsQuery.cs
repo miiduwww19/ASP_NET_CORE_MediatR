@@ -30,6 +30,15 @@ namespace Services.NewFolder.NewFolder
         {
             // Some business logic
 
+            if (request.UserId == String.Empty)
+            {
+                return new[]
+            {
+                new Car { Name = $"Ford" },
+                new Car { Name = "Toyta" }
+            };
+            }
+
             // Returning list of Cars.
             return new[]
             {

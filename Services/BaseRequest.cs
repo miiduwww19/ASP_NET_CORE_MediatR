@@ -8,6 +8,6 @@ namespace Services
 {
     public class BaseRequest
     {
-        public string UserId { get; set; }
+        public string UserId { get; set; } = String.Empty;
     }
 }
